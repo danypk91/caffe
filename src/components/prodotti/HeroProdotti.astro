@@ -1,0 +1,72 @@
+---
+---
+
+<section class="relative py-32 md:py-40 overflow-hidden">
+  <!-- Background con gradient -->
+  <div class="hero-prodotti-bg absolute inset-0 bg-gradient-to-br from-caffe-scuro via-amber-900 to-caffe-scuro"></div>
+
+  <!-- Pattern overlay -->
+  <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 20% 40%, #D4882C 1px, transparent 1px), radial-gradient(circle at 70% 30%, #D4882C 1px, transparent 1px), radial-gradient(circle at 50% 80%, #D4882C 1.5px, transparent 1.5px); background-size: 60px 60px, 80px 80px, 100px 100px;"></div>
+
+  <!-- Floating shapes -->
+  <div class="absolute top-1/4 right-12 w-48 h-48 bg-ambra/5 rounded-full blur-3xl hero-prodotti-float"></div>
+  <div class="absolute bottom-1/3 left-10 w-56 h-56 bg-crema/5 rounded-full blur-3xl hero-prodotti-float-delay"></div>
+
+  <!-- Contenuto -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="reveal-up mb-4">
+      <span class="inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ambra border border-ambra/30 rounded-full">
+        I nostri distributori
+      </span>
+    </div>
+
+    <h1 class="reveal-up font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-crema leading-tight">
+      Distributori per<br>
+      <span class="text-ambra">ogni esigenza</span>
+    </h1>
+
+    <p class="reveal-up mt-6 text-lg sm:text-xl text-crema/75 max-w-2xl mx-auto leading-relaxed">
+      Dalla pausa caffè agli snack, offriamo distributori automatici di ultima generazione per soddisfare ogni necessità nel tuo spazio di lavoro.
+    </p>
+  </div>
+</section>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .hero-prodotti-bg {
+    background-size: 200% 200%;
+    animation: heroProdottiGradient 12s ease infinite;
+  }
+
+  @keyframes heroProdottiGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .hero-prodotti-float {
+    animation: heroProdottiFloat 8s ease-in-out infinite;
+  }
+
+  .hero-prodotti-float-delay {
+    animation: heroProdottiFloat 10s ease-in-out 2s infinite;
+  }
+
+  @keyframes heroProdottiFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .hero-prodotti-bg {
+      animation: heroProdottiGradient 12s ease infinite, heroProdottiParallax linear;
+      animation-timeline: auto, scroll();
+      animation-range: normal, 0% 50%;
+    }
+
+    @keyframes heroProdottiParallax {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(10%) scale(1.03); }
+    }
+  }
+</style>

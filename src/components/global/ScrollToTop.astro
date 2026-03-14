@@ -1,0 +1,38 @@
+<button
+  id="scroll-to-top"
+  aria-label="Torna in cima alla pagina"
+  class="fixed bottom-6 right-6 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-ambra text-white shadow-lg transition-all duration-300 hover:bg-ambra-hover hover:scale-110 opacity-0 invisible"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m18 15-6-6-6 6"/>
+  </svg>
+</button>
+
+<script>
+  function initScrollToTop() {
+    const btn = document.getElementById('scroll-to-top');
+    if (!btn) return;
+
+    const THRESHOLD = 200;
+
+    function toggleVisibility() {
+      if (window.scrollY > THRESHOLD) {
+        btn.classList.remove('opacity-0', 'invisible');
+        btn.classList.add('opacity-100', 'visible');
+      } else {
+        btn.classList.remove('opacity-100', 'visible');
+        btn.classList.add('opacity-0', 'invisible');
+      }
+    }
+
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    toggleVisibility();
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  initScrollToTop();
+  document.addEventListener('astro:after-swap', initScrollToTop);
+</script>

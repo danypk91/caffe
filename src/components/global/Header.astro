@@ -1,0 +1,233 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/servizi', label: 'Servizi' },
+  { href: '/prodotti', label: 'Prodotti' },
+  { href: '/contatti', label: 'Contatti' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  id="main-header"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+    <!-- Logo -->
+    <a href="/" class="relative z-50 flex items-center gap-2 group">
+      <span class="text-2xl font-heading font-bold text-white transition-colors duration-300 group-[.header-solid]:text-caffe-scuro" id="logo-text">
+        Luana Mariani
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-8" aria-label="Navigazione principale">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:text-ambra',
+            currentPath === link.href
+              ? 'text-ambra'
+              : 'text-white/90 header-solid:text-testo',
+          ]}
+          aria-current={currentPath === link.href ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Hamburger button (mobile) -->
+    <button
+      id="menu-toggle"
+      class="relative z-50 md:hidden w-10 h-10 flex items-center justify-center"
+      aria-expanded="false"
+      aria-label="Apri menu di navigazione"
+    >
+      <div class="w-6 flex flex-col gap-1.5">
+        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300 origin-center"></span>
+        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300 origin-center"></span>
+        <span class="hamburger-line block h-0.5 w-full bg-white transition-all duration-300 origin-center"></span>
+      </div>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-40 pointer-events-none"
+  aria-hidden="true"
+>
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-caffe-scuro/95 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="menu-backdrop"></div>
+
+  <!-- Menu content -->
+  <nav
+    class="relative z-10 flex flex-col items-center justify-center h-full gap-8"
+    aria-label="Menu mobile"
+  >
+    {navLinks.map((link, i) => (
+      <a
+        href={link.href}
+        class:list={[
+          'mobile-nav-link text-3xl font-heading font-bold uppercase tracking-wider transition-all duration-300',
+          'opacity-0 translate-y-5',
+          currentPath === link.href ? 'text-ambra' : 'text-crema hover:text-ambra',
+        ]}
+        style={`transition-delay: ${i * 80}ms`}
+        aria-current={currentPath === link.href ? 'page' : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
+
+    <!-- Close button -->
+    <button
+      id="menu-close"
+      class="absolute top-6 right-4 w-10 h-10 flex items-center justify-center text-crema/70 hover:text-crema transition-colors opacity-0"
+      aria-label="Chiudi menu"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </nav>
+</div>
+
+<style>
+  @reference "../../styles/global.css";
+
+  /* Header solid state (after scroll or non-hero pages) */
+  #main-header.header-solid {
+    @apply bg-white/95 backdrop-blur-md shadow-sm;
+  }
+
+  #main-header.header-solid #logo-text {
+    @apply text-caffe-scuro;
+  }
+
+  #main-header.header-solid .hamburger-line {
+    @apply bg-caffe-scuro;
+  }
+
+  #main-header.header-solid nav a:not([aria-current='page']) {
+    @apply text-testo/80 hover:text-ambra;
+  }
+
+  /* Hamburger → X animation */
+  #menu-toggle.is-open .hamburger-line:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  #menu-toggle.is-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle.is-open .hamburger-line:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+  #menu-toggle.is-open .hamburger-line {
+    @apply bg-crema;
+  }
+
+  /* Mobile menu open state */
+  #mobile-menu.is-open {
+    @apply pointer-events-auto;
+  }
+
+  #mobile-menu.is-open #menu-backdrop {
+    opacity: 1;
+  }
+
+  #mobile-menu.is-open .mobile-nav-link,
+  #mobile-menu.is-open #menu-close {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initHeader() {
+    const header = document.getElementById('main-header');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuBackdrop = document.getElementById('menu-backdrop');
+    const menuClose = document.getElementById('menu-close');
+
+    if (!header || !menuToggle || !mobileMenu) return;
+
+    let isMenuOpen = false;
+
+    // --- Sticky header: transparent → solid on scroll ---
+    function updateHeader() {
+      if (window.scrollY > 80) {
+        header.classList.add('header-solid');
+      } else {
+        header.classList.remove('header-solid');
+      }
+    }
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+
+    // --- Mobile Menu ---
+    function openMenu() {
+      isMenuOpen = true;
+      menuToggle.classList.add('is-open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      mobileMenu!.classList.add('is-open');
+      mobileMenu!.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      if (!isMenuOpen) return;
+      isMenuOpen = false;
+      menuToggle.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu!.classList.remove('is-open');
+      mobileMenu!.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Toggle via hamburger
+    menuToggle.addEventListener('click', () => {
+      isMenuOpen ? closeMenu() : openMenu();
+    });
+
+    // Close via explicit close button
+    menuClose?.addEventListener('click', closeMenu);
+
+    // Close via backdrop click (not on nav links or buttons)
+    menuBackdrop?.addEventListener('click', closeMenu);
+
+    // Close via nav link click
+    mobileMenu!.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close via Escape key (with guard)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
+    });
+  }
+
+  // Init on load
+  initHeader();
+
+  // Re-init after View Transitions
+  document.addEventListener('astro:after-swap', initHeader);
+
+  // Prevent flicker during View Transitions
+  document.addEventListener('astro:before-swap', () => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu?.classList.contains('is-open')) {
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  });
+</script>

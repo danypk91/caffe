@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroServizi from '../components/servizi/HeroServizi.astro';
+import DettaglioServizio from '../components/servizi/DettaglioServizio.astro';
+---
+
+<Layout
+  title="Servizi | Distributori Automatici - Luana Mariani"
+  description="Installazione gratuita, rifornimento, manutenzione e assistenza tecnica per distributori automatici di caffè, bevande e snack."
+>
+  <HeroServizi />
+
+  <!-- Installazione -->
+  <DettaglioServizio
+    id="installazione"
+    titolo="Installazione gratuita"
+    descrizione="Installiamo il distributore automatico più adatto ai tuoi spazi senza alcun costo di acquisto o installazione. Analizziamo le tue esigenze e troviamo la soluzione perfetta per uffici, aziende, negozi e spazi pubblici."
+    dettagli={[
+      'Sopralluogo gratuito per valutare gli spazi',
+      'Scelta del distributore in base al numero di utenti',
+      'Installazione e collaudo inclusi nel servizio',
+      'Nessun vincolo di acquisto: il distributore è in comodato d\'uso',
+      'Configurazione personalizzata di bevande e prodotti',
+    ]}
+    icona='<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/>'
+  />
+
+  <!-- Rifornimento -->
+  <DettaglioServizio
+    id="rifornimento"
+    titolo="Rifornimento costante"
+    descrizione="Garantiamo un approvvigionamento puntuale e regolare con prodotti selezionati di alta qualità. Il tuo distributore sarà sempre pieno e pronto all'uso, senza che tu debba preoccuparti di nulla."
+    dettagli={[
+      'Rifornimento programmato in base ai consumi',
+      'Prodotti di marca selezionati per qualità e gusto',
+      'Ampia scelta: caffè, bevande calde, bibite fredde, snack',
+      'Monitoraggio costante delle scorte',
+      'Possibilità di personalizzare l\'offerta prodotti',
+    ]}
+    icona='<path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>'
+    invertito
+  />
+
+  <!-- Manutenzione -->
+  <DettaglioServizio
+    id="manutenzione"
+    titolo="Manutenzione periodica"
+    descrizione="Ci prendiamo cura dei distributori con interventi di manutenzione ordinaria e pulizia programmata, per garantire sempre il massimo dell'igiene, dell'efficienza e della qualità delle bevande erogate."
+    dettagli={[
+      'Pulizia e sanificazione periodica dei circuiti',
+      'Controllo e sostituzione dei componenti soggetti a usura',
+      'Verifiche di funzionamento e calibrazione',
+      'Interventi preventivi per evitare guasti',
+      'Report periodico sullo stato del distributore',
+    ]}
+    icona='<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>'
+  />
+
+  <!-- Assistenza -->
+  <DettaglioServizio
+    id="assistenza"
+    titolo="Assistenza tecnica rapida"
+    descrizione="Interveniamo tempestivamente in caso di guasti o malfunzionamenti, con un servizio di assistenza tecnica dedicato e tempi di risposta minimi per ridurre al minimo i disservizi."
+    dettagli={[
+      'Assistenza telefonica per risolvere problemi immediati',
+      'Interventi tecnici rapidi sul posto',
+      'Ricambi sempre disponibili per le riparazioni',
+      'Sostituzione temporanea del distributore in caso di guasti gravi',
+      'Servizio attivo dal lunedì al venerdì',
+    ]}
+    icona='<path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/>'
+    invertito
+  />
+
+  <!-- Comodato d'uso -->
+  <DettaglioServizio
+    id="comodato"
+    titolo="Comodato d'uso gratuito"
+    descrizione="Offriamo i nostri distributori in comodato d'uso gratuito: nessun investimento iniziale, nessun costo nascosto. Tu metti a disposizione lo spazio, noi pensiamo a tutto il resto."
+    dettagli={[
+      'Distributore fornito senza alcun costo di acquisto',
+      'Nessun canone mensile di noleggio',
+      'Contratto flessibile e senza vincoli a lungo termine',
+      'Sostituzione gratuita in caso di obsolescenza',
+      'Upgrade del distributore al variare delle esigenze',
+    ]}
+    icona='<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/>'
+  />
+
+  <!-- CTA finale -->
+  <section class="py-16 md:py-24 bg-gradient-to-br from-ambra to-ambra-hover relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/3 -translate-x-1/4 blur-2xl"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="reveal-up font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        Hai bisogno di un distributore?
+      </h2>
+      <p class="reveal-up text-white/85 text-base sm:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+        Contattaci per un sopralluogo gratuito e senza impegno. Troveremo la soluzione più adatta alle tue esigenze.
+      </p>
+      <div class="reveal-up flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/contatti"
+          class="group inline-flex items-center gap-2 px-8 py-4 bg-caffe-scuro text-crema font-semibold rounded-lg hover:bg-caffe-medio transition-all duration-300 hover:shadow-lg hover:shadow-caffe-scuro/20 hover:-translate-y-0.5"
+        >
+          Richiedi un preventivo gratuito
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a
+          href="tel:0000000000"
+          class="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-lg border border-white/30 bg-white/10 hover:bg-white/20 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Chiamaci ora
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

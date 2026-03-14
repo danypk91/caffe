@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroContatti from '../components/contatti/HeroContatti.astro';
+import ContactForm from '../components/contatti/ContactForm.astro';
+import MapSection from '../components/contatti/MapSection.astro';
+---
+
+<Layout
+  title="Contatti | Distributori Automatici - Luana Mariani"
+  description="Contattaci per un sopralluogo gratuito e senza impegno. Installiamo distributori automatici di caffè, bevande e snack a Roma e provincia."
+>
+  <HeroContatti />
+  <ContactForm />
+  <MapSection />
+
+  <!-- CTA finale -->
+  <section class="py-16 md:py-24 bg-gradient-to-br from-ambra to-ambra-hover relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/3 -translate-x-1/4 blur-2xl"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="reveal-up font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        Preferisci parlare a voce?
+      </h2>
+      <p class="reveal-up text-white/85 text-base sm:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+        Chiamaci direttamente per un consulto immediato. Siamo disponibili dal lunedì al venerdì, dalle 8:00 alle 18:00.
+      </p>
+      <div class="reveal-up flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="tel:+390000000000"
+          class="group inline-flex items-center gap-2 px-8 py-4 bg-caffe-scuro text-crema font-semibold rounded-lg hover:bg-caffe-medio transition-all duration-300 hover:shadow-lg hover:shadow-caffe-scuro/20 hover:-translate-y-0.5"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Chiamaci ora
+        </a>
+        <a
+          href="mailto:info@luanamariani.it"
+          class="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-lg border border-white/30 bg-white/10 hover:bg-white/20 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Scrivici un'email
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,232 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroProdotti from '../components/prodotti/HeroProdotti.astro';
+import CardProdotto from '../components/prodotti/CardProdotto.astro';
+---
+
+<Layout
+  title="Prodotti | Distributori Automatici - Luana Mariani"
+  description="Scopri la nostra gamma di distributori automatici: caffè e bevande calde, bibite fredde, snack e distributori combinati per ogni esigenza."
+>
+  <HeroProdotti />
+
+  <!-- Galleria prodotti -->
+  <section class="py-16 md:py-24 bg-crema-chiaro">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 md:mb-16">
+        <div class="reveal-up">
+          <span class="inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ambra bg-ambra/10 rounded-full mb-4">
+            La nostra gamma
+          </span>
+        </div>
+        <h2 class="reveal-up font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-caffe-scuro leading-tight">
+          Scegli il distributore<br>più adatto a te
+        </h2>
+        <p class="reveal-up mt-4 text-testo-chiaro text-base sm:text-lg max-w-2xl mx-auto">
+          Ogni spazio ha le sue esigenze. Ecco perché offriamo diverse tipologie di distributori automatici, tutti forniti in comodato d'uso gratuito.
+        </p>
+      </div>
+
+      <div class="stagger-children grid sm:grid-cols-2 gap-6 md:gap-8">
+        <CardProdotto
+          id="caffe"
+          nome="Caffè e Bevande Calde"
+          descrizione="Espresso, cappuccino, cioccolata calda e tè: il meglio della pausa calda, con miscele selezionate e macchine di ultima generazione."
+          caratteristiche={['Espresso', 'Cappuccino', 'Cioccolata', 'Tè', 'Ginseng']}
+          dettagli={[
+            'Macchine con sistema a capsule o a grani per un caffè sempre fresco',
+            'Ampia scelta di miscele italiane selezionate',
+            'Bevande calde personalizzabili: intensità, zucchero, quantità',
+            'Latte fresco o in polvere a seconda del modello',
+            'Display intuitivo e pagamento contactless disponibile',
+          ]}
+          gradiente="from-amber-900 to-amber-700"
+          icona='<path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2"/><path d="M10 2v2"/><path d="M14 2v2"/>'
+        />
+
+        <CardProdotto
+          id="bibite"
+          nome="Bibite Fredde"
+          descrizione="Acqua, succhi, bevande energetiche e bibite gassate: una selezione rinfrescante sempre a portata di mano."
+          caratteristiche={['Acqua', 'Succhi', 'Energy drink', 'Bibite gassate']}
+          dettagli={[
+            'Distributori refrigerati con temperatura regolabile',
+            'Ampia selezione di marchi nazionali e internazionali',
+            'Bottiglie e lattine in diversi formati',
+            'Sistema di refrigerazione a basso consumo energetico',
+            'Vetrina illuminata per una facile selezione del prodotto',
+          ]}
+          gradiente="from-sky-700 to-sky-500"
+          icona='<path d="M5.5 20H8"/><path d="M17 3l-2 8h5.5"/><path d="M6 12h12"/><path d="M8 12l-2 8"/><path d="M16 12l-2 8"/><path d="M9 4l1 4"/><path d="M15 4l-1 4"/>'
+        />
+
+        <CardProdotto
+          id="snack"
+          nome="Snack e Alimentari"
+          descrizione="Merendine, barrette, frutta secca e snack salati: una varietà di prodotti per ogni gusto e momento della giornata."
+          caratteristiche={['Snack dolci', 'Snack salati', 'Frutta secca', 'Barrette']}
+          dettagli={[
+            'Spirali e cassetti motorizzati per un\'erogazione sicura',
+            'Opzioni salutari: frutta secca, barrette proteiche, prodotti bio',
+            'Snack dolci e salati dei migliori marchi',
+            'Piatti pronti e panini freschi su richiesta',
+            'Rotazione costante dei prodotti per garantire freschezza',
+          ]}
+          gradiente="from-emerald-700 to-emerald-500"
+          icona='<path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="M2 16l20 6-6-20A20 20 0 0 0 2 16"/><path d="M5.71 17.11a17.04 17.04 0 0 1 11.4-11.4"/>'
+        />
+
+        <CardProdotto
+          id="combinati"
+          nome="Distributori Combinati"
+          descrizione="La soluzione completa in un unico distributore: caffè, bibite e snack insieme, ideale per spazi ridotti con massima versatilità."
+          caratteristiche={['Tutto in uno', 'Spazi ridotti', 'Versatile', 'Personalizzabile']}
+          dettagli={[
+            'Un unico distributore per bevande calde, fredde e snack',
+            'Ideale per uffici e attività con spazi limitati',
+            'Configurazione personalizzabile in base alle preferenze',
+            'Stesso livello di qualità dei distributori dedicati',
+            'Manutenzione e rifornimento semplificati in un unico punto',
+          ]}
+          gradiente="from-caffe-scuro to-caffe-medio"
+          icona='<path d="M4 7V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3"/><polyline points="14 2 14 8 20 8"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="15" x2="14" y2="15"/><line x1="4" y1="18" x2="10" y2="18"/>'
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Sezione vantaggi -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="reveal-up font-heading text-3xl sm:text-4xl font-bold text-caffe-scuro leading-tight">
+          Perché scegliere i nostri distributori
+        </h2>
+      </div>
+      <div class="stagger-children grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="flex items-start gap-4 bg-crema-chiaro rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-caffe-scuro/5">
+          <div class="flex-shrink-0 w-12 h-12 bg-ambra/15 rounded-xl flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-ambra">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading text-lg font-bold text-caffe-scuro mb-1">Comodato d'uso gratuito</h3>
+            <p class="text-testo-chiaro text-sm leading-relaxed">Nessun costo di acquisto o noleggio, il distributore è fornito gratuitamente.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-crema-chiaro rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-caffe-scuro/5">
+          <div class="flex-shrink-0 w-12 h-12 bg-ambra/15 rounded-xl flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-ambra">
+              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading text-lg font-bold text-caffe-scuro mb-1">Manutenzione inclusa</h3>
+            <p class="text-testo-chiaro text-sm leading-relaxed">Ci occupiamo noi di pulizia, sanificazione e interventi tecnici periodici.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-crema-chiaro rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-caffe-scuro/5">
+          <div class="flex-shrink-0 w-12 h-12 bg-ambra/15 rounded-xl flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-ambra">
+              <path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading text-lg font-bold text-caffe-scuro mb-1">Assistenza dedicata</h3>
+            <p class="text-testo-chiaro text-sm leading-relaxed">Supporto rapido e interventi tecnici per ridurre al minimo i disservizi.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-crema-chiaro rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-caffe-scuro/5">
+          <div class="flex-shrink-0 w-12 h-12 bg-ambra/15 rounded-xl flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-ambra">
+              <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading text-lg font-bold text-caffe-scuro mb-1">Pagamento contactless</h3>
+            <p class="text-testo-chiaro text-sm leading-relaxed">Distributori moderni con pagamento digitale, carte e app.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-crema-chiaro rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-caffe-scuro/5">
+          <div class="flex-shrink-0 w-12 h-12 bg-ambra/15 rounded-xl flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-ambra">
+              <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading text-lg font-bold text-caffe-scuro mb-1">Offerta personalizzata</h3>
+            <p class="text-testo-chiaro text-sm leading-relaxed">Scegli tu i prodotti da inserire, in base ai gusti del tuo team.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-crema-chiaro rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-caffe-scuro/5">
+          <div class="flex-shrink-0 w-12 h-12 bg-ambra/15 rounded-xl flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-ambra">
+              <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a.53.53 0 0 0 .4.29l5.16.754a.53.53 0 0 1 .294.904l-3.733 3.638a.53.53 0 0 0-.152.469l.882 5.14a.53.53 0 0 1-.77.56l-4.614-2.426a.53.53 0 0 0-.494 0L7.14 18.73a.53.53 0 0 1-.77-.56l.882-5.14a.53.53 0 0 0-.152-.47L3.367 8.923a.53.53 0 0 1 .294-.904l5.16-.754a.53.53 0 0 0 .4-.29z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading text-lg font-bold text-caffe-scuro mb-1">Prodotti di qualità</h3>
+            <p class="text-testo-chiaro text-sm leading-relaxed">Solo marchi selezionati e miscele premium per la massima soddisfazione.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA finale -->
+  <section class="py-16 md:py-24 bg-gradient-to-br from-ambra to-ambra-hover relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/3 -translate-x-1/4 blur-2xl"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="reveal-up font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        Trova il distributore perfetto
+      </h2>
+      <p class="reveal-up text-white/85 text-base sm:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+        Contattaci per un sopralluogo gratuito: analizzeremo i tuoi spazi e ti proporremo la soluzione più adatta, senza impegno.
+      </p>
+      <div class="reveal-up flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/contatti"
+          class="group inline-flex items-center gap-2 px-8 py-4 bg-caffe-scuro text-crema font-semibold rounded-lg hover:bg-caffe-medio transition-all duration-300 hover:shadow-lg hover:shadow-caffe-scuro/20 hover:-translate-y-0.5"
+        >
+          Richiedi un preventivo gratuito
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a
+          href="tel:0000000000"
+          class="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-lg border border-white/30 bg-white/10 hover:bg-white/20 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Chiamaci ora
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  function initAccordions() {
+    document.querySelectorAll('.accordion-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        const content = btn.nextElementSibling as HTMLElement;
+        const chevron = btn.querySelector('.accordion-chevron') as HTMLElement;
+
+        if (isExpanded) {
+          btn.setAttribute('aria-expanded', 'false');
+          content.style.gridTemplateRows = '0fr';
+          chevron.style.transform = 'rotate(0deg)';
+        } else {
+          btn.setAttribute('aria-expanded', 'true');
+          content.style.gridTemplateRows = '1fr';
+          chevron.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  }
+
+  initAccordions();
+  document.addEventListener('astro:after-swap', initAccordions);
+</script>

@@ -1,0 +1,71 @@
+---
+const currentYear = new Date().getFullYear();
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/servizi', label: 'Servizi' },
+  { href: '/prodotti', label: 'Prodotti' },
+  { href: '/contatti', label: 'Contatti' },
+];
+---
+
+<footer class="bg-caffe-scuro text-crema/90">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+
+      <!-- Colonna 1: Brand + descrizione -->
+      <div>
+        <a href="/" class="text-2xl font-heading font-bold text-crema hover:text-ambra transition-colors">
+          Luana Mariani
+        </a>
+        <p class="mt-4 text-sm text-crema/70 leading-relaxed max-w-xs">
+          Gestione distributori automatici di caffè, bevande calde, bibite e snack per uffici, aziende e spazi pubblici.
+        </p>
+      </div>
+
+      <!-- Colonna 2: Link rapidi -->
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-ambra mb-4">Link rapidi</h3>
+        <ul class="space-y-2">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-crema/70 hover:text-ambra transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Colonna 3: Contatti -->
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-ambra mb-4">Contatti</h3>
+        <ul class="space-y-3 text-sm text-crema/70">
+          <li class="flex items-start gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5 text-ambra/70"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href="tel:+390000000000" class="hover:text-ambra transition-colors">000 000 0000</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5 text-ambra/70"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            <a href="mailto:info@luanamariani.it" class="hover:text-ambra transition-colors">info@luanamariani.it</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5 text-ambra/70"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Roma, Italia</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Divider + Copyright -->
+    <div class="mt-10 pt-6 border-t border-crema/15 text-center">
+      <p class="text-xs text-crema/50">
+        &copy; {currentYear} Luana Mariani — Distributori Automatici. Tutti i diritti riservati.
+      </p>
+    </div>
+  </div>
+</footer>

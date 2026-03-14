@@ -1,0 +1,115 @@
+---
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import Header from '../components/global/Header.astro';
+import Footer from '../components/global/Footer.astro';
+import ScrollToTop from '../components/global/ScrollToTop.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Gestione distributori automatici di caffè, bevande calde, bibite e snack.' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={new URL('/images/og-image.jpg', Astro.site)} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Luana Mariani - Distributori Automatici",
+      "description": "Gestione distributori automatici di caffè, bevande calde, bibite e snack. Installazione gratuita in comodato d'uso, rifornimento, manutenzione e assistenza tecnica.",
+      "url": "https://distributori-mariani.it",
+      "telephone": "+390000000000",
+      "email": "info@luanamariani.it",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Roma",
+        "addressRegion": "Lazio",
+        "addressCountry": "IT"
+      },
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "priceRange": "€",
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 41.9028,
+          "longitude": 12.4964
+        },
+        "geoRadius": "50000"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servizi distributori automatici",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Installazione distributori automatici" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rifornimento e gestione prodotti" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manutenzione ordinaria e straordinaria" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Assistenza tecnica" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Comodato d'uso gratuito" } }
+        ]
+      },
+      "sameAs": []
+    })} />
+
+    <ClientRouter />
+  </head>
+  <body class="bg-white text-testo antialiased">
+    <Header />
+    <slot />
+    <Footer />
+    <ScrollToTop />
+
+    <script>
+      // Intersection Observer for scroll animations
+      function initAnimations() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale, .stagger-children').forEach((el) => {
+          observer.observe(el);
+        });
+      }
+
+      // Run on initial load and after view transitions
+      initAnimations();
+      document.addEventListener('astro:after-swap', initAnimations);
+    </script>
+  </body>
+</html>

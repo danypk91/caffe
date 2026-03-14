@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* Custom theme */
+@theme {
+  --color-caffe-scuro: #3C2415;
+  --color-caffe-medio: #6B4226;
+  --color-crema: #F5E6D3;
+  --color-crema-chiaro: #FBF5EE;
+  --color-ambra: #D4882C;
+  --color-ambra-hover: #B8741F;
+  --color-testo: #2D2D2D;
+  --color-testo-chiaro: #5A5A5A;
+  --color-grigio-chiaro: #F8F8F8;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-testo);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Scroll animation classes */
+.reveal-up,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-up {
+  transform: translateY(30px);
+}
+
+.reveal-left {
+  transform: translateX(-30px);
+}
+
+.reveal-right {
+  transform: translateX(30px);
+}
+
+.reveal-scale {
+  transform: scale(0.95);
+}
+
+.reveal-up.animate-in,
+.reveal-left.animate-in,
+.reveal-right.animate-in,
+.reveal-scale.animate-in {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stagger-children.animate-in > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children.animate-in > *:nth-child(2) { transition-delay: 100ms; }
+.stagger-children.animate-in > *:nth-child(3) { transition-delay: 200ms; }
+.stagger-children.animate-in > *:nth-child(4) { transition-delay: 300ms; }
+.stagger-children.animate-in > *:nth-child(5) { transition-delay: 400ms; }
+.stagger-children.animate-in > *:nth-child(6) { transition-delay: 500ms; }
+
+.stagger-children.animate-in > * {
+  opacity: 1;
+  transform: translateY(0);
+}

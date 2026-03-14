@@ -1,0 +1,98 @@
+---
+const stats = [
+  { valore: 150, suffisso: '+', label: 'Distributori installati', icona: 'M21 10.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6.5' },
+  { valore: 120, suffisso: '+', label: 'Clienti soddisfatti', icona: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' },
+  { valore: 15, suffisso: '', label: 'Anni di esperienza', icona: 'M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z' },
+  { valore: 50, suffisso: '+', label: 'Prodotti disponibili', icona: 'M17 8h1a4 4 0 1 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8zM6 2v4M10 2v4M14 2v4' },
+];
+---
+
+<section class="py-20 md:py-28 bg-caffe-scuro relative overflow-hidden">
+  <!-- Pattern decorativo -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-10 left-10 w-40 h-40 border border-crema rounded-full"></div>
+    <div class="absolute bottom-10 right-10 w-60 h-60 border border-crema rounded-full"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 border border-crema rounded-full"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Intestazione -->
+    <div class="text-center mb-14 md:mb-16">
+      <div class="reveal-up">
+        <span class="inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ambra bg-ambra/10 rounded-full mb-4">
+          I numeri parlano
+        </span>
+      </div>
+      <h2 class="reveal-up font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-crema leading-tight">
+        La nostra esperienza<br>in cifre
+      </h2>
+    </div>
+
+    <!-- Stats grid -->
+    <div class="stagger-children grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      {stats.map((stat) => (
+        <div class="stat-card text-center p-6 md:p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div class="mx-auto mb-4 w-14 h-14 bg-ambra/15 rounded-xl flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-ambra">
+              <path d={stat.icona} />
+            </svg>
+          </div>
+          <div class="stat-counter font-heading text-4xl sm:text-5xl font-bold text-crema mb-2" data-target={stat.valore} data-suffix={stat.suffisso}>
+            0{stat.suffisso}
+          </div>
+          <p class="text-crema/70 text-sm sm:text-base font-medium">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function initCounters() {
+    const counters = document.querySelectorAll('.stat-counter');
+    const duration = 2000;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const el = entry.target as HTMLElement;
+          if (el.dataset.counted) return;
+          el.dataset.counted = 'true';
+
+          const target = parseInt(el.dataset.target || '0', 10);
+          const suffix = el.dataset.suffix || '';
+          const start = performance.now();
+
+          function update(now: number) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(eased * target);
+            el.textContent = current + suffix;
+
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            }
+          }
+
+          requestAnimationFrame(update);
+          observer.unobserve(el);
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+  }
+
+  // Init on page load
+  initCounters();
+
+  // Re-init after View Transitions
+  document.addEventListener('astro:after-swap', initCounters);
+</script>

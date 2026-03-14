@@ -1,19 +1,87 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background con gradient animato e pattern decorativo -->
+<section id="hero" class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background con gradient animato -->
   <div class="hero-bg absolute inset-0 bg-gradient-to-br from-caffe-scuro via-caffe-medio to-caffe-scuro"></div>
 
-  <!-- Pattern overlay (chicchi stilizzati via radial gradient) -->
+  <!-- Pattern overlay -->
   <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 20% 50%, #D4882C 1px, transparent 1px), radial-gradient(circle at 80% 20%, #D4882C 1px, transparent 1px), radial-gradient(circle at 60% 80%, #D4882C 1.5px, transparent 1.5px); background-size: 60px 60px, 80px 80px, 100px 100px;"></div>
 
-  <!-- Decorative floating shapes -->
+  <!-- Chicchi parallasse — Layer 1 (sfondo, lento) -->
+  <div class="beans-layer absolute inset-0 pointer-events-none" data-speed="0.02">
+    <svg class="bean absolute top-[8%] left-[12%] w-8 h-8 text-ambra/15 rotate-[25deg]" viewBox="0 0 24 24" fill="currentColor">
+      <ellipse cx="12" cy="12" rx="8" ry="11"/><path d="M12 1c-2 4-2 8 0 12s2 8 0 12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+    <svg class="bean absolute top-[15%] right-[18%] w-10 h-10 text-crema/10 -rotate-[30deg]" viewBox="0 0 24 24" fill="currentColor">
+      <ellipse cx="12" cy="12" rx="8" ry="11"/><path d="M12 1c-2 4-2 8 0 12s2 8 0 12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+    <svg class="bean absolute top-[45%] left-[5%] w-6 h-6 text-ambra/10 rotate-[60deg]" viewBox="0 0 24 24" fill="currentColor">
+      <ellipse cx="12" cy="12" rx="8" ry="11"/><path d="M12 1c-2 4-2 8 0 12s2 8 0 12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+    <svg class="bean absolute bottom-[20%] left-[25%] w-9 h-9 text-crema/8 -rotate-[15deg]" viewBox="0 0 24 24" fill="currentColor">
+      <ellipse cx="12" cy="12" rx="8" ry="11"/><path d="M12 1c-2 4-2 8 0 12s2 8 0 12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+    <svg class="bean absolute bottom-[30%] right-[8%] w-7 h-7 text-ambra/12 rotate-[45deg]" viewBox="0 0 24 24" fill="currentColor">
+      <ellipse cx="12" cy="12" rx="8" ry="11"/><path d="M12 1c-2 4-2 8 0 12s2 8 0 12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <!-- Chicchi parallasse — Layer 2 (medio) -->
+  <div class="beans-layer absolute inset-0 pointer-events-none" data-speed="0.04">
+    <svg class="bean absolute top-[22%] left-[40%] w-14 h-14 text-ambra/8 rotate-[10deg]" viewBox="0 0 24 24" fill="currentColor">
+      <ellipse cx="12" cy="12" rx="8" ry="11"/><path d="M12 1c-2 4-2 8 0 12s2 8 0 12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+    <svg class="bean absolute top-[60%] right-[30%] w-12 h-12 text-crema/6 -rotate-[40deg]" viewBox="0 0 24 24" fill="currentColor">
+      <ellipse cx="12" cy="12" rx="8" ry="11"/><path d="M12 1c-2 4-2 8 0 12s2 8 0 12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+    <svg class="bean absolute bottom-[15%] right-[55%] w-16 h-16 text-ambra/6 rotate-[70deg]" viewBox="0 0 24 24" fill="currentColor">
+      <ellipse cx="12" cy="12" rx="8" ry="11"/><path d="M12 1c-2 4-2 8 0 12s2 8 0 12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+    <svg class="bean absolute top-[75%] left-[65%] w-10 h-10 text-crema/8 -rotate-[55deg]" viewBox="0 0 24 24" fill="currentColor">
+      <ellipse cx="12" cy="12" rx="8" ry="11"/><path d="M12 1c-2 4-2 8 0 12s2 8 0 12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <!-- Chicchi parallasse — Layer 3 (primo piano, veloce) -->
+  <div class="beans-layer absolute inset-0 pointer-events-none" data-speed="0.07">
+    <svg class="bean absolute top-[10%] right-[45%] w-20 h-20 text-ambra/5 rotate-[35deg]" viewBox="0 0 24 24" fill="currentColor">
+      <ellipse cx="12" cy="12" rx="8" ry="11"/><path d="M12 1c-2 4-2 8 0 12s2 8 0 12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+    <svg class="bean absolute bottom-[25%] left-[50%] w-24 h-24 text-crema/4 -rotate-[20deg]" viewBox="0 0 24 24" fill="currentColor">
+      <ellipse cx="12" cy="12" rx="8" ry="11"/><path d="M12 1c-2 4-2 8 0 12s2 8 0 12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <!-- Floating glow -->
   <div class="absolute top-1/4 left-10 w-64 h-64 bg-ambra/5 rounded-full blur-3xl hero-float"></div>
   <div class="absolute bottom-1/4 right-10 w-80 h-80 bg-crema/5 rounded-full blur-3xl hero-float-delay"></div>
 
+  <!-- Tazza stilizzata in basso -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] sm:w-[360px] md:w-[420px]">
+    <svg viewBox="0 0 380 300" fill="none" class="w-full opacity-20">
+      <!-- Piattino -->
+      <ellipse cx="160" cy="280" rx="150" ry="18" fill="currentColor" class="text-crema/30"/>
+      <!-- Corpo tazza -->
+      <path d="M40 140 C40 140 35 280 160 280 C285 280 280 140 280 140 Z" fill="currentColor" class="text-crema/20"/>
+      <!-- Bordo tazza -->
+      <path d="M30 140 L290 140" stroke="currentColor" class="text-crema/30" stroke-width="4" stroke-linecap="round"/>
+      <!-- Manico -->
+      <path d="M280 160 C330 160 350 200 320 230 C300 250 280 240 280 220" stroke="currentColor" class="text-crema/25" stroke-width="6" fill="none" stroke-linecap="round"/>
+    </svg>
+
+    <!-- Vapore animato — centrato sul corpo della tazza (42% dal bordo sinistro) -->
+    <div class="steam-container absolute -top-[38%] sm:-top-[30%] md:-top-8 left-[42%] -translate-x-1/2 w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] md:w-[200px] md:h-[200px]">
+      <svg viewBox="0 0 200 200" class="w-full h-full" fill="none">
+        <path class="steam steam-1" d="M70 200 C70 170 50 150 60 120 C70 90 50 60 70 30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <path class="steam steam-2" d="M100 200 C100 165 80 145 95 110 C110 75 85 50 100 20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <path class="steam steam-3" d="M130 200 C130 175 150 150 135 120 C120 90 145 65 130 35" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
   <!-- Contenuto -->
-  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-28 sm:pb-20">
     <!-- Badge -->
     <div class="reveal-up mb-6">
       <span class="inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ambra border border-ambra/30 rounded-full">
@@ -51,10 +119,45 @@
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-crema/40 animate-bounce">
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-crema/40 animate-bounce z-10">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </div>
 </section>
+
+<script>
+  function initHero() {
+    const section = document.querySelector('.hero-section');
+    if (!section) return;
+    const layers = section.querySelectorAll('.beans-layer');
+    const steamContainer = section.querySelector('.steam-container') as HTMLElement;
+
+    section.addEventListener('mousemove', (e) => {
+      const rect = section.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      // Parallasse chicchi
+      layers.forEach((layer) => {
+        const speed = parseFloat((layer as HTMLElement).dataset.speed || '0.02');
+        const tx = x * speed * 800;
+        const ty = y * speed * 800;
+        (layer as HTMLElement).style.transform = `translate(${tx}px, ${ty}px)`;
+        (layer as HTMLElement).style.transition = 'transform 0.3s ease-out';
+      });
+
+    });
+
+    section.addEventListener('mouseleave', () => {
+      layers.forEach((layer) => {
+        (layer as HTMLElement).style.transform = 'translate(0, 0)';
+        (layer as HTMLElement).style.transition = 'transform 0.8s ease-out';
+      });
+    });
+  }
+
+  initHero();
+  document.addEventListener('astro:after-swap', initHero);
+</script>
 
 <style>
   @reference "../../styles/global.css";
@@ -82,6 +185,51 @@
   @keyframes float {
     0%, 100% { transform: translateY(0) scale(1); }
     50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  /* Chicchi galleggianti */
+  .bean {
+    animation: beanFloat var(--duration, 6s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+
+  .beans-layer .bean:nth-child(1) { --duration: 5s; --delay: 0s; }
+  .beans-layer .bean:nth-child(2) { --duration: 7s; --delay: 1s; }
+  .beans-layer .bean:nth-child(3) { --duration: 6s; --delay: 0.5s; }
+  .beans-layer .bean:nth-child(4) { --duration: 8s; --delay: 1.5s; }
+  .beans-layer .bean:nth-child(5) { --duration: 5.5s; --delay: 0.8s; }
+
+  @keyframes beanFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  /* Vapore */
+  .steam {
+    stroke: rgba(245, 230, 211, 0.15);
+    animation: steamRise 3s ease-in-out infinite;
+    stroke-dasharray: 80;
+    stroke-dashoffset: 80;
+  }
+
+  .steam-1 { animation-delay: 0s; }
+  .steam-2 { animation-delay: 0.8s; }
+  .steam-3 { animation-delay: 1.6s; }
+
+  @keyframes steamRise {
+    0% {
+      stroke-dashoffset: 80;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    30% {
+      opacity: 0.6;
+    }
+    100% {
+      stroke-dashoffset: -80;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
   }
 
   /* Parallax leggero via CSS (scroll-driven) */
